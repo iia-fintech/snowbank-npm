@@ -1,0 +1,19 @@
+{
+  "name": "snowbank",
+  "version": "0.0.4",
+  "description": "Package to handle the core functioning of snowbank",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "snowbank",
+    "npm-snowbank"
+  ],
+  "author": "Abdulla Anas",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
