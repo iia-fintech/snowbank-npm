@@ -1,6 +1,6 @@
 {
   "name": "snowbank",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Package to handle the core functioning of snowbank",
   "main": "app.js",
   "scripts": {
