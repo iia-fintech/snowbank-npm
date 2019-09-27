@@ -3,7 +3,7 @@ var request = require("request");
 module.exports = {
     initUser: (token, callback) => {
         var options = { method: 'GET',
-            url: 'http://snowbank.me:8000/init-user',
+            url: 'https://api.snowbank.me/init-user',
             json: true,
             headers: 
             {   'cache-control': 'no-cache',
@@ -30,7 +30,7 @@ module.exports = {
     },
     createUser: (token, userHash, password, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/create-user',
+            url: 'https://api.snowbank.me/create-user',
             headers: 
             {   Authorization: token,
                 'Content-Type': 'application/json' },
@@ -54,7 +54,7 @@ module.exports = {
     },
     userBalance: (token, userHash, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/user/balance',
+            url: 'https://api.snowbank.me/user/balance',
             headers: 
             {   Authorization: token,
                 'Content-Type': 'application/json' },
@@ -79,7 +79,7 @@ module.exports = {
     },
     generateAddress: (token, userHash, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/user/generate-address',
+            url: 'https://api.snowbank.me/user/generate-address',
             headers: 
             {   Authorization: token,
                 'Content-Type': 'application/json' },
@@ -104,7 +104,7 @@ module.exports = {
     },
     publicKey: (token, userHash, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/user/public-key',
+            url: 'https://api.snowbank.me/user/public-key',
             headers: 
             {   Authorization: token,
                 'Content-Type': 'application/json' },
@@ -129,7 +129,7 @@ module.exports = {
     },
     createChannel: (token, fromUserHash, toUserHash, satoshi, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/create-channel',
+            url: 'https://api.snowbank.me/create-channel',
             headers: 
             {   Authorization: token,
                 'Content-Type': 'application/json' },
@@ -153,8 +153,8 @@ module.exports = {
     },
     sendCoin: (token, fromUserHash, toUserHash, satoshi, callback) => {
         var options = { method: 'POST',
-            url: 'http://snowbank.me:8000/send-coin',
-            headers: 
+            url: 'https://api.snowbank.me/send-coin',
+            headers:
             {   Authorization: token,
                 'Content-Type': 'application/json' },
                 body: '{ "fromUserHash": '+fromUserHash+', "toUserHash": '+toUserHash+', "satoshi": '+satoshi+'}' };
