@@ -52,6 +52,30 @@ module.exports = {
             
         });
     },
+    unlockUser: (token, userHash, password, callback) => {
+        var options = { method: 'POST',
+            url: 'https://api.snowbank.me/user/unlock',
+            headers: 
+            {   Authorization: token,
+                'Content-Type': 'application/json' },
+                body: '{ "password": '+password+', "userHash": '+userHash+'}' };
+        request.get(options, function (error, response, body) {
+            if (error){ 
+                err = new Error(error);
+                return callback(err, false)
+            }
+            if (body.code == 0) {
+                res = {
+                    message: body.message
+                }
+                return callback(false, res)
+            }else{
+                err = new Error(body.message)
+                return callback(err, false)
+            }
+            
+        });
+    },
     userBalance: (token, userHash, callback) => {
         var options = { method: 'POST',
             url: 'https://api.snowbank.me/user/balance',
@@ -175,5 +199,76 @@ module.exports = {
             
         });
     },
-    
+    deleteChannel: (token, fromUserHash, toUserHash, callback) => {
+        var options = { method: 'POST',
+            url: 'https://api.snowbank.me/delete-channel',
+            headers: 
+            {   Authorization: token,
+                'Content-Type': 'application/json' },
+                body: '{ "fromUserHash": '+fromUserHash+', "toUserHash": '+toUserHash+'}' };
+        request.get(options, function (error, response, body) {
+            if (error){ 
+                err = new Error(error);
+                return callback(err, false)
+            }
+            if (body.code == 0) {
+                res = {
+                    message: body.message
+                }
+                return callback(false, res)
+            }else{
+                err = new Error(body.message)
+                return callback(err, false)
+            }
+            
+        });
+    },
+    deletePeer: (token, fromUserHash, toUserHash, callback) => {
+        var options = { method: 'POST',
+            url: 'https://api.snowbank.me/delete-peer',
+            headers: 
+            {   Authorization: token,
+                'Content-Type': 'application/json' },
+                body: '{ "fromUserHash": '+fromUserHash+', "toUserHash": '+toUserHash+'}' };
+        request.get(options, function (error, response, body) {
+            if (error){ 
+                err = new Error(error);
+                return callback(err, false)
+            }
+            if (body.code == 0) {
+                res = {
+                    message: body.message
+                }
+                return callback(false, res)
+            }else{
+                err = new Error(body.message)
+                return callback(err, false)
+            }
+            
+        });
+    },
+    changePassword: (token, userHash, currentPassword, newPassword, callback) => {
+        var options = { method: 'POST',
+            url: 'https://api.snowbank.me/user/change-password',
+            headers: 
+            {   Authorization: token,
+                'Content-Type': 'application/json' },
+                body: '{ "userHash": '+userHash+', "currentPassword": '+currentPassword+', "newPassword": '+newPassword+'}' };
+        request.get(options, function (error, response, body) {
+            if (error){ 
+                err = new Error(error);
+                return callback(err, false)
+            }
+            if (body.code == 0) {
+                res = {
+                    message: body.message
+                }
+                return callback(false, res)
+            }else{
+                err = new Error(body.message)
+                return callback(err, false)
+            }
+            
+        });
+    },
 }
